@@ -3,14 +3,8 @@ window.addEventListener("load", (event) => {
 
   const customEase = CustomEase.create("custom", ".87,0,.13,1");
   const counter = document.getElementById("counter");
-  const lenis = new Lenis();
-  lenis.on("scroll", ScrollTrigger.update);
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-  gsap.ticker.lagSmoothing(0);
-  gsap.set(".video-container", {
+
+  gsap.set(".hero-container", {
     scale: 0,
     rotation: -20,
   });
@@ -45,7 +39,7 @@ window.addEventListener("load", (event) => {
       duration: 1,
       ease: customEase,
       onStart: () => {
-        gsap.to(".video-container", {
+        gsap.to(".hero-container", {
           scale: 1,
           rotation: 0,
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -105,15 +99,13 @@ window.addEventListener("load", (event) => {
   });
 
   document.getElementById("hero").addEventListener("mousemove", (e) => {
-    const vm = document.querySelector(".video-mask");
+    const vm = document.querySelector(".img-mask");
     if (!vm) return;
     const { clientX, clientY } = e;
     const x = Math.round((clientX / window.innerWidth) * 100);
     const y = Math.round((clientY / window.innerHeight) * 100);
     // animar clip-path (usa GSAP para suavizar)
     gsap.to(vm, {
-      duration: 0.35,
-      ease: "power3.out",
       // tamaño del círculo en px; ajusta 120px al tamaño deseado
       webkitClipPath: `circle(40px at ${x}% ${y}%)`,
       clipPath: `circle(40px at ${x}% ${y}%)`,
