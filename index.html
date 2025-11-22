@@ -7,39 +7,113 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="hero">
-      <div class="progress-bar">
-        <p>loading</p>
-        <p>/<span id="counter">0</span></p>
-      </div>
-
-      <section class="video-container">
-        <video autoplay loop muted playsinline>
-          <source src="./src/assests/video/videoHero.mp4" type="video/mp4" />
-        </video>
+    <main>
+      <section class="hero">
+        <div class="progress-bar">
+          <p>loading</p>
+          <p>/<span id="counter">0</span></p>
+        </div>
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="./src/assests/video/videoHero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="header">
+          <h1><span>Soluciones</span></h1>
+          <h1><span>que</span></h1>
+          <h1><span>inspiran</span></h1>
+          <p><span>Contáctanos</span></p>
+        </div>
+        <div class="logo">
+          <div class="char"><h1>E</h1></div>
+          <div class="char anim-out"><h1>V</h1></div>
+          <div class="char anim-out"><h1>E</h1></div>
+          <div class="char anim-out"><h1>T</h1></div>
+          <div class="char anim-out"><h1>E</h1></div>
+          <div class="char anim-out"><h1>C</h1></div>
+          <div class="char anim-out"><h1>H</h1></div>
+          <div class="char anim-in"><h1>.</h1></div>
+        </div>
       </section>
-
-      <section class="header">
-        <h1><span>Soluciones</span></h1>
-        <h1><span>que</span></h1>
-        <h1><span>inspiran</span></h1>
-        <p><span>Contáctanos</span></p>
+      <section class="animated-cards">
+        <div class="card">
+          <div class="card-container">
+            <h1>Asesoría</h1>
+            <div class="service-card">
+              <div class="card-image">
+                <img
+                  src="./src/assests/img/asesoria.jpg"
+                  alt="imagen asesoria servicio web"
+                />
+              </div>
+              <div class="heading">
+                Analizamos tus necesidades y te damos soluciones pensadas
+                exclusivamente para tu forma de trabajar.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-container">
+            <div class="service-card">
+              <div class="card-image">
+                <img
+                  src="./src/assests/img/seguridad.jpg"
+                  alt="imagen de seguridad servicio web"
+                />
+              </div>
+              <div class="heading">
+                Protegemos tus datos, tus equipos y tu negocio con prácticas
+                modernas y confiables.
+              </div>
+            </div>
+            <h1>Seguridad</h1>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-container">
+            <h1>Ayuda</h1>
+            <div class="service-card">
+              <div class="card-image">
+                <img
+                  src="./src/assests/img/acompanamiento.jpg"
+                  alt="imagen acompañamiento servicio web"
+                />
+              </div>
+              <div class="heading">
+                No solo resolvemos problemas: te guiamos, te explicamos y te
+                apoyamos en cada decisión tecnológica.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-container">
+            <div class="service-card">
+              <div class="card-image">
+                <img
+                  src="./src/assests/img/confianza.jpg"
+                  alt="imagen asesoria servicio web"
+                />
+              </div>
+              <div class="heading">
+                Trabajamos para que tu tecnología funcione siempre fluida,
+                evitando pérdidas de tiempo y productividad.
+              </div>
+            </div>
+            <h1>Confianza</h1>
+          </div>
+        </div>
       </section>
-
-      <div class="logo">
-        <div class="char"><h1>E</h1></div>
-        <div class="char anim-out"><h1>V</h1></div>
-        <div class="char anim-out"><h1>E</h1></div>
-        <div class="char anim-out"><h1>T</h1></div>
-        <div class="char anim-out"><h1>E</h1></div>
-        <div class="char anim-out"><h1>C</h1></div>
-        <div class="char anim-out"><h1>H</h1></div>
-        <div class="char anim-in"><h1>.</h1></div>
-      </div>
+      <section class="outro">
+        <h2></h2>
+      </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.3.15/dist/lenis.min.js"></script>
     <script src="script.js" type="module"></script>
   </body>
 </html>
