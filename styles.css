@@ -3,6 +3,7 @@
   --color-dark1: #15161b;
   --color-ligth1: #e3e3db;
   --color-yellow: #ffbb00;
+  --color-dark-yellow: #a37903ff;
 
   --font-poppins: "Poppins", sans-serif;
 
@@ -22,6 +23,7 @@
   --padding-16: 1em;
   --padding-48: 3em;
 
+  --margin-8: 0.5em;
   --margin-16: 1em;
 
   --gap-16: 1em;
@@ -245,7 +247,7 @@ p {
 
 .boton-container {
   display: none;
-  height: 50svh;
+  height: 60svh;
   width: 100%;
   padding: var(--padding-32);
   justify-content: center;
@@ -263,6 +265,30 @@ button {
   font-size: var(--font-size-20);
   cursor: pointer;
   font-family: var(--font-poppins);
+}
+
+footer {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-ligth1);
+  color: var(--color-dark1);
+  padding: var(--padding-16);
+  display: none;
+}
+
+footer > label:first-child {
+  font-size: var(--font-size-20);
+  color: var(--color-dark1);
+  margin-bottom: var(--margin-8);
+}
+
+footer > label:first-child:hover {
+  transform: scale(1.2);
+  color: var(--color-dark-yellow);
+  transition: transform 0.3s ease-in-out;
 }
 
 @media (max-width: 1000px) {

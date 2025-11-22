@@ -75,17 +75,33 @@ window.addEventListener("load", (event) => {
     .to(".boton-container", {
       display: "flex",
     })
-    .call(cards);
+    .to("footer", { display: "flex" });
+
+  gsap.delayedCall(6, cards);
+
+  gsap.delayedCall(6, () => {
+    gsap.from(".lema, .informacion-empresa,.copyrigth", {
+      scrollTrigger: {
+        trigger: ".boton-container",
+        start: "top 30%",
+        end: "bottom 80%",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+      y: 100,
+      duration: 2,
+      stagger: 0.4,
+    });
+  });
 
   gsap.to(".boton", {
     y: -8,
-    scale: 1.03,
+    scale: 1.4,
     ease: "sine.inOut",
     duration: 0.8,
     repeat: -1,
     yoyo: true,
     delay: 6.75,
-    force3D: true,
   });
 });
 
