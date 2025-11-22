@@ -96,6 +96,20 @@ p {
   overflow: hidden;
 }
 
+.video-no-mask {
+  filter: brightness(0.4);
+}
+
+.video-mask {
+  filter: grayscale(1);
+  -webkit-mask-image: none;
+  mask-image: none;
+  -webkit-clip-path: circle(40px at 50% 50%);
+  clip-path: circle(40px at 50% 50%);
+  will-change: clip-path, transform;
+  z-index: 10000;
+}
+
 .video-container video {
   position: absolute;
   top: 50%;
@@ -107,7 +121,6 @@ p {
   min-height: 100%;
   object-fit: cover;
   opacity: 0.85;
-  filter: brightness(0.4);
 }
 
 .header {

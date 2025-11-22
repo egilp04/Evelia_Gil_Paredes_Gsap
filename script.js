@@ -103,6 +103,22 @@ window.addEventListener("load", (event) => {
     yoyo: true,
     delay: 6.75,
   });
+
+  document.getElementById("hero").addEventListener("mousemove", (e) => {
+    const vm = document.querySelector(".video-mask");
+    if (!vm) return;
+    const { clientX, clientY } = e;
+    const x = Math.round((clientX / window.innerWidth) * 100);
+    const y = Math.round((clientY / window.innerHeight) * 100);
+    // animar clip-path (usa GSAP para suavizar)
+    gsap.to(vm, {
+      duration: 0.35,
+      ease: "power3.out",
+      // tamaño del círculo en px; ajusta 120px al tamaño deseado
+      webkitClipPath: `circle(40px at ${x}% ${y}%)`,
+      clipPath: `circle(40px at ${x}% ${y}%)`,
+    });
+  });
 });
 
 function cards() {
