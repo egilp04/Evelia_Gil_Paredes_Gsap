@@ -11,7 +11,7 @@
   --font-size-16: 1rem;
   --font-size-18: 1.125rem;
   --font-size-20: 1.25rem;
-  --fonts-size-48: 3rem;
+  --font-size-48: 3rem;
   --font-size-72: 4.5rem;
   --font-size-160: 10rem;
 
@@ -19,6 +19,8 @@
 
   --padding-24: 1.5em;
   --padding-32: 2em;
+  --padding-16: 1em;
+  --padding-48: 3em;
 
   --margin-16: 1em;
 
@@ -239,6 +241,28 @@ p {
   font-weight: 600;
   color: rgb(88, 87, 87);
   padding: 7px;
+}
+
+.boton-container {
+  display: none;
+  height: 50svh;
+  width: 100%;
+  padding: var(--padding-32);
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow);
+}
+
+button {
+  padding: var(--padding-16) var(--padding-48);
+  border: none;
+  background: var(--color-dark1);
+  color: var(--color-ligth1);
+  border-radius: 6px;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.6);
+  font-size: var(--font-size-20);
+  cursor: pointer;
+  font-family: var(--font-poppins);
 }
 
 @media (max-width: 1000px) {

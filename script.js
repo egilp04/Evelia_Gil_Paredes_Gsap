@@ -14,69 +14,79 @@ window.addEventListener("load", (event) => {
     scale: 0,
     rotation: -20,
   });
-  gsap.to(".hero", {
+
+  const tl = gsap.timeline();
+
+  tl.to(".hero", {
     clipPath: "polygon(0% 45%, 25% 45%, 25% 55%, 0% 55%)",
     duration: 1.5,
     ease: customEase,
-    delay: 1,
-  });
-  gsap.to(".hero", {
-    clipPath: "polygon(0% 45%, 100% 45%, 100% 55%, 0% 55%)",
-    duration: 2,
-    ease: customEase,
-    delay: 3,
-    onStart: () => {
-      gsap.to(".progress-bar", {
-        width: "100vw",
-        duration: 2,
-        ease: customEase,
-      });
-      gsap.to(counter, {
-        innerHTML: 100,
-        duration: 2,
-        ease: customEase,
-        snap: { innerHTML: 1 },
-      });
-    },
-  });
-  gsap.to(".hero", {
-    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    duration: 1,
-    ease: customEase,
-    delay: 5,
-    onStart: () => {
-      gsap.to(".video-container", {
-        scale: 1,
-        rotation: 0,
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        duration: 1.25,
-        ease: customEase,
-      });
-      gsap.to(".progress-bar", {
-        opacity: 0,
-        duration: 0.3,
-      });
-      gsap.to(".logo", {
-        left: "0%",
-        transform: "translateX(0%)",
-        duration: 1.25,
-        ease: customEase,
-      });
-    },
-  });
-  gsap.to(".header span", {
-    y: "0%",
-    duration: 1,
-    stagger: 0.125,
-    ease: "power3.out",
-    delay: 5.75,
-    opacity: 1,
-  });
-  gsap.to(".animated-cards", {
-    display: "block",
+  })
+    .to(".hero", {
+      clipPath: "polygon(0% 45%, 100% 45%, 100% 55%, 0% 55%)",
+      duration: 2,
+      ease: customEase,
+      onStart: () => {
+        gsap.to(".progress-bar", {
+          width: "100vw",
+          duration: 2,
+          ease: customEase,
+        });
+        gsap.to(counter, {
+          innerHTML: 100,
+          duration: 2,
+          ease: customEase,
+          snap: { innerHTML: 1 },
+        });
+      },
+    })
+    .to(".hero", {
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      duration: 1,
+      ease: customEase,
+      onStart: () => {
+        gsap.to(".video-container", {
+          scale: 1,
+          rotation: 0,
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          duration: 1.25,
+          ease: customEase,
+        });
+        gsap.to(".progress-bar", {
+          opacity: 0,
+          duration: 0.3,
+        });
+        gsap.to(".logo", {
+          left: "0%",
+          transform: "translateX(0%)",
+          duration: 1.25,
+          ease: customEase,
+        });
+      },
+    })
+    .to(".header span", {
+      y: "0%",
+      duration: 1,
+      stagger: 0.125,
+      ease: "power3.out",
+      opacity: 1,
+    })
+    .to(".animated-cards", { display: "block" })
+    .to(".boton-container", {
+      display: "flex",
+    })
+    .call(cards);
+
+  gsap.to(".boton", {
+    y: -8,
+    scale: 1.03,
+    ease: "sine.inOut",
+    duration: 0.8,
+    repeat: -1,
+    yoyo: true,
     delay: 6.75,
+    force3D: true,
   });
-  setTimeout(cards, 1000 * 7);
 });
 
 function cards() {
