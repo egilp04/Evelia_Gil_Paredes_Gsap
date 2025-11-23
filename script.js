@@ -1,7 +1,6 @@
 window.addEventListener("load", (event) => {
-  gsap.registerPlugin(ScrollTrigger, CustomEase);
+  gsap.registerPlugin(ScrollTrigger);
 
-  const customEase = CustomEase.create("custom", ".87,0,.13,1");
   const counter = document.getElementById("counter");
 
   gsap.set(".hero-container", {
@@ -14,22 +13,22 @@ window.addEventListener("load", (event) => {
   tl.to(".hero", {
     clipPath: "polygon(0% 45%, 25% 45%, 25% 55%, 0% 55%)",
     duration: 1.5,
-    ease: customEase,
+    ease: "power2.inOut",
   })
     .to(".hero", {
       clipPath: "polygon(0% 45%, 100% 45%, 100% 55%, 0% 55%)",
       duration: 2,
-      ease: customEase,
+      ease: "power2.inOut",
       onStart: () => {
         gsap.to(".progress-bar", {
           width: "100vw",
           duration: 2,
-          ease: customEase,
+          ease: "power2.inOut",
         });
         gsap.to(counter, {
           innerHTML: 100,
           duration: 2,
-          ease: customEase,
+          ease: "power2.inOut",
           snap: { innerHTML: 1 },
         });
       },
@@ -37,14 +36,14 @@ window.addEventListener("load", (event) => {
     .to(".hero", {
       clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       duration: 1,
-      ease: customEase,
+      ease: "power2.inOut",
       onStart: () => {
         gsap.to(".hero-container", {
           scale: 1,
           rotation: 0,
           clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
           duration: 1.25,
-          ease: customEase,
+          ease: "power2.inOut",
         });
         gsap.to(".progress-bar", {
           opacity: 0,
@@ -54,7 +53,7 @@ window.addEventListener("load", (event) => {
           left: "0%",
           transform: "translateX(0%)",
           duration: 1.25,
-          ease: customEase,
+          ease: "power2.inOut",
         });
       },
     })
@@ -175,8 +174,8 @@ window.addEventListener("load", (event) => {
       scrollTrigger: { trigger: ".boton-container", start: "top 30%" },
       opacity: 0,
       y: 100,
-      duration: 2,
-      stagger: 0.6,
+      duration: 1,
+      stagger: 0.2,
     });
   });
 
