@@ -200,4 +200,15 @@ window.addEventListener("load", (event) => {
       clipPath: `circle(40px at ${x}% ${y}%)`,
     });
   });
+  document.getElementById("hero").addEventListener("touchstart", (e) => {
+    const vm = document.querySelector(".img-mask");
+    if (!vm) return;
+    const { clientX, clientY } = e;
+    const x = Math.round((clientX / window.innerWidth) * 100);
+    const y = Math.round((clientY / window.innerHeight) * 100);
+    gsap.to(vm, {
+      webkitClipPath: `circle(40px at ${x}% ${y}%)`,
+      clipPath: `circle(40px at ${x}% ${y}%)`,
+    });
+  });
 });
