@@ -1,8 +1,8 @@
 :root {
   --color-dark1: #15161b;
   --color-ligth1: #e3e3db;
-  --color-yellow: #ffbb00;
-  --color-dark-yellow: #a37903ff;
+  --color-ligth2: #e0f7ffff;
+  --color-ligth3: #b2c4eaff;
 
   --font-family: sans-serif;
 
@@ -11,11 +11,15 @@
   --font-size-16: 1rem;
   --font-size-18: 1.125rem;
   --font-size-20: 1.25rem;
+  --font-size-24: 1.5rem;
+  --font-size-32: 2rem;
   --font-size-48: 3rem;
   --font-size-72: 4.5rem;
   --font-size-160: 10rem;
 
-  --font-weight-500: 500;
+  --font-weight-Medium: 500;
+  --font-weight-bold: bold;
+  --font-weight-extra-bold: 800;
 
   --padding-24: 1.5em;
   --padding-32: 2em;
@@ -24,6 +28,8 @@
 
   --margin-8: 0.5em;
   --margin-16: 1em;
+  --margin-24: 1.5em;
+  --margin-32: 2em;
 
   --gap-16: 1em;
   --gap-50: 3.125rem;
@@ -45,7 +51,10 @@ body {
 }
 
 .header > p > span {
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--margin-16);
+  color: var(--color-ligth2);
 }
 
 p {
@@ -79,7 +88,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-yellow);
+  color: var(--color-ligth3);
 }
 
 .hero-container {
@@ -146,11 +155,6 @@ p {
   color: var(--color-ligth1);
 }
 
-.header p {
-  margin-top: var(--margin-16);
-  color: var(--color-yellow);
-}
-
 .logo {
   position: absolute;
   bottom: 0;
@@ -163,7 +167,7 @@ p {
   z-index: 20;
 }
 
-.char-anim-out h1 {
+.char-anim-out h2 {
   position: relative;
   will-change: transform;
 }
@@ -216,7 +220,7 @@ p {
   background-color: var(--color-ligth1);
 }
 
-.card-container h1 {
+.card-container h2 {
   font-size: var(--font-size-160);
   font-weight: var(--font-weight-500);
   line-height: var(--line-height-085);
@@ -255,7 +259,8 @@ p {
 .heading {
   font-weight: 600;
   color: rgb(88, 87, 87);
-  padding: 7px;
+  padding: var(--padding-16);
+  color: var(--color-dark1);
 }
 
 .boton-container {
@@ -265,7 +270,7 @@ p {
   padding: var(--padding-32);
   justify-content: center;
   align-items: center;
-  background-color: var(--color-yellow);
+  background-color: var(--color-ligth3);
 }
 
 button {
@@ -292,14 +297,14 @@ footer {
   display: none;
 }
 
-footer > label:first-child {
-  font-size: var(--font-size-20);
+footer {
+  font-size: var(--font-size-13);
   color: var(--color-dark1);
   margin-bottom: var(--margin-8);
 }
 
-footer > label:first-child:hover {
-  transform: scale(1.2);
+footer > label:last-child:hover {
+  transform: scale(1.03s);
   color: var(--color-dark-yellow);
   transition: transform 0.3s ease-in-out;
 }

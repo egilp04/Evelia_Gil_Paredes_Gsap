@@ -71,20 +71,120 @@ window.addEventListener("load", (event) => {
     })
     .to("footer", { display: "flex" });
 
-  gsap.delayedCall(6, cards);
-
   gsap.delayedCall(6, () => {
-    gsap.from(".lema, .informacion-empresa,.copyrigth", {
-      scrollTrigger: {
-        trigger: ".boton-container",
-        start: "top 30%",
-        end: "bottom 80%",
-        toggleActions: "play none none reverse",
-      },
+    gsap.fromTo(
+      ".animated-card-1",
+      { x: 600 },
+      {
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+    gsap.fromTo(
+      "#card-1 h2",
+      { x: -800 },
+      {
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+    gsap.fromTo(
+      ".animated-card-2",
+      { x: -600 },
+      {
+        scrollTrigger: {
+          trigger: "#card-1",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+    gsap.fromTo(
+      "#card-2 h2",
+      { x: 850 },
+      {
+        scrollTrigger: {
+          trigger: "#card-1",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+
+    gsap.fromTo(
+      ".animated-card-3",
+      { x: 600 },
+      {
+        scrollTrigger: {
+          trigger: "#card-2",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+    gsap.fromTo(
+      "#card-3 h2",
+      { x: -800 },
+      {
+        scrollTrigger: {
+          trigger: "#card-2",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+
+    gsap.fromTo(
+      ".animated-card-4",
+      { x: -600 },
+      {
+        scrollTrigger: {
+          trigger: "#card-3",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+    gsap.fromTo(
+      "#card-4 h2",
+      { x: 850 },
+      {
+        scrollTrigger: {
+          trigger: "#card-3",
+          start: "bottom 40%",
+          markers: true,
+          scrub: 1,
+        },
+        x: 0,
+      }
+    );
+
+    gsap.from(".tel-data, .ubi-data, .copyrigth", {
+      scrollTrigger: { trigger: ".boton-container", start: "top 30%" },
       opacity: 0,
       y: 100,
       duration: 2,
-      stagger: 0.4,
+      stagger: 0.6,
     });
   });
 
@@ -106,66 +206,8 @@ window.addEventListener("load", (event) => {
     const y = Math.round((clientY / window.innerHeight) * 100);
     // animar clip-path (usa GSAP para suavizar)
     gsap.to(vm, {
-      // tamaño del círculo en px; ajusta 120px al tamaño deseado
       webkitClipPath: `circle(40px at ${x}% ${y}%)`,
       clipPath: `circle(40px at ${x}% ${y}%)`,
     });
   });
 });
-
-function cards() {
-  const cardHeadings = gsap.utils.toArray(".card h1");
-  const splits = [];
-  cardHeadings.forEach((heading) => {
-    const split = SplitText.create(heading, {
-      type: "chars",
-      charsClass: "char",
-    });
-    splits.push(split);
-    split.chars.forEach((char, i) => {
-      const charInitialY = i % 2 === 0 ? -150 : 150;
-      gsap.set(char, { y: charInitialY });
-    });
-  });
-  const cards = gsap.utils.toArray(".card");
-  cards.forEach((card, index) => {
-    const cardContainer = card.querySelector(".card-container");
-    const cardContainerInitialX = [1, 3].includes(index) ? -100 : 100;
-    const split = splits[index];
-    const charCount = split.chars.length;
-    ScrollTrigger.create({
-      trigger: card,
-      start: "top bottom",
-      end: "top 20%",
-      scrub: 1,
-      onUpdate: (self) => {
-        const cardContainerX =
-          cardContainerInitialX - self.progress * cardContainerInitialX;
-        gsap.set(cardContainer, { x: `${cardContainerX}%` });
-        split.chars.forEach((char, i) => {
-          let charStaggerIndex;
-          if (index === 1) {
-            charStaggerIndex = charCount - 1 - i;
-          } else {
-            charStaggerIndex = i;
-          }
-          const charStartDelay = 0.1;
-          const charTimelinespan = 1 - charStartDelay;
-          const staggerFactor = Math.min(0.75, charTimelinespan * 0.75);
-          const delay =
-            charStartDelay + (charStaggerIndex / charCount) * staggerFactor;
-          const duration =
-            charTimelinespan - (staggerFactor * (charCount - 1)) / charCount;
-          const start = delay;
-          let charProgress = 0;
-          if (self.progress >= start) {
-            charProgress = Math.min(1, (self.progress - start) / duration);
-          }
-          const charInitialY = i % 2 === 0 ? -150 : 150;
-          const charY = charInitialY - charProgress * charInitialY;
-          gsap.set(char, { y: charY });
-        });
-      },
-    });
-  });
-}
