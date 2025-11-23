@@ -342,7 +342,7 @@ footer > label:last-child:hover {
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
   .header h1 {
     font-size: var(--font-size-40);
   }
