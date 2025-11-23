@@ -74,12 +74,11 @@ window.addEventListener("load", (event) => {
   gsap.delayedCall(6, () => {
     gsap.fromTo(
       ".animated-card-1",
-      { x: 600 },
+      { x: 700 },
       {
         scrollTrigger: {
           trigger: ".hero",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -87,12 +86,11 @@ window.addEventListener("load", (event) => {
     );
     gsap.fromTo(
       "#card-1 h2",
-      { x: -800 },
+      { x: -900 },
       {
         scrollTrigger: {
           trigger: ".hero",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -100,12 +98,11 @@ window.addEventListener("load", (event) => {
     );
     gsap.fromTo(
       ".animated-card-2",
-      { x: -600 },
+      { x: -700 },
       {
         scrollTrigger: {
           trigger: "#card-1",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -113,12 +110,11 @@ window.addEventListener("load", (event) => {
     );
     gsap.fromTo(
       "#card-2 h2",
-      { x: 850 },
+      { x: 900 },
       {
         scrollTrigger: {
           trigger: "#card-1",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -127,12 +123,11 @@ window.addEventListener("load", (event) => {
 
     gsap.fromTo(
       ".animated-card-3",
-      { x: 600 },
+      { x: 700 },
       {
         scrollTrigger: {
           trigger: "#card-2",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -140,12 +135,11 @@ window.addEventListener("load", (event) => {
     );
     gsap.fromTo(
       "#card-3 h2",
-      { x: -800 },
+      { x: -900 },
       {
         scrollTrigger: {
           trigger: "#card-2",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -154,12 +148,11 @@ window.addEventListener("load", (event) => {
 
     gsap.fromTo(
       ".animated-card-4",
-      { x: -600 },
+      { x: -700 },
       {
         scrollTrigger: {
           trigger: "#card-3",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
@@ -167,12 +160,11 @@ window.addEventListener("load", (event) => {
     );
     gsap.fromTo(
       "#card-4 h2",
-      { x: 850 },
+      { x: 900 },
       {
         scrollTrigger: {
           trigger: "#card-3",
           start: "bottom 40%",
-          markers: true,
           scrub: 1,
         },
         x: 0,
