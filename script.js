@@ -200,10 +200,13 @@ window.addEventListener("load", (event) => {
       clipPath: `circle(40px at ${x}% ${y}%)`,
     });
   });
-  document.getElementById("hero").addEventListener("touchstart", (e) => {
+  document.getElementById("hero").addEventListener("touchmove", (e) => {
     const vm = document.querySelector(".img-mask");
     if (!vm) return;
-    const { clientX, clientY } = { clientX: e.touches[0].clientX, clientY: e.touches[0].clientY };
+    const { clientX, clientY } = {
+      clientX: e.touches[0].clientX,
+      clientY: e.touches[0].clientY,
+    };
     const x = Math.round((clientX / window.innerWidth) * 100);
     const y = Math.round((clientY / window.innerHeight) * 100);
     gsap.to(vm, {
